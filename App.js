@@ -1,11 +1,29 @@
 import React from 'react';
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import { StyleSheet, Text, View } from 'react-native';
+import Login from './components/Login/Login';
+import Signup from './components/Signup/Signup';
 
 export default function App() {
+  const Stack = createStackNavigator();
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name='Login'
+          component={Login}
+          // options={{ title: 'Welcome' }}
+        />
+        <Stack.Screen
+          name='Signup'
+          component={Signup}
+          // options={{ title: 'Welcome' }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
