@@ -2,10 +2,6 @@ import React from 'react';
 import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
 
 export default function App({ navigation }) {
-  function login() {
-    console.log('Login!');
-  }
-
   return (
     <View style={styles.container}>
       <Text>FoodE</Text>
@@ -19,10 +15,18 @@ export default function App({ navigation }) {
         placeholder='Password'
       />
       <Button
+        // onPress={() => {
+        //   navigation.navigate('Signup');
+        // }}
+        title='Login'
+        color='#841584'
+        accessibilityLabel='Learn more about this purple button'
+      />
+      <Button
         onPress={() => {
           navigation.navigate('Signup');
         }}
-        title='Login'
+        title='Signup Here'
         color='#841584'
         accessibilityLabel='Learn more about this purple button'
       />

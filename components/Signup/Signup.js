@@ -27,14 +27,31 @@ export default function App({ navigation }) {
         style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
         placeholder='Email'
       />
+      <Button
+        // onPress={() => {
+        //   navigation.navigate('Login');
+        // }}
+        title='Signup'
+        color='#841584'
+        accessibilityLabel='Learn more about this purple button'
+      />
 
       <Button
         onPress={() => {
           navigation.navigate('Login');
         }}
-        title='Signup'
+        title='Login Page'
         color='#841584'
         accessibilityLabel='Learn more about this purple button'
+      />
+
+      <Button
+        onPress={() => {
+          navigation.navigate('Dashboard');
+        }}
+        title='Dashboard'
+        color='#841584'
+        accessibilityLabel='Go to Dashboard'
       />
     </View>
   );
