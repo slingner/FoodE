@@ -1,10 +1,28 @@
-import { createStackNavigator } from 'react-navigation';
-import Login from '../Login/Login';
-import Signup from '../Signup/Signup';
+import React from 'react';
+import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
-const Nav = createStackNavigator({
-  Login: { screen: Login },
-  Signup: { screen: Signup },
+export default function Nav(props) {
+  function onHamburgerClick() {
+    props.toggleDrawer();
+  }
+
+  return (
+    <View style={styles.header}>
+      <TouchableOpacity onPress={onHamburgerClick}>
+        <Text>Ham</Text>
+      </TouchableOpacity>
+      <Text>FoodE</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  header: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    backgroundColor: '#fff',
+    marginTop: 30,
+  },
 });
-
-export default Nav;

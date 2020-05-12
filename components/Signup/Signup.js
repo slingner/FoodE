@@ -35,24 +35,6 @@ export default function App({ navigation }) {
         color='#841584'
         accessibilityLabel='Learn more about this purple button'
       />
-
-      <Button
-        onPress={() => {
-          navigation.navigate('Login');
-        }}
-        title='Login Page'
-        color='#841584'
-        accessibilityLabel='Learn more about this purple button'
-      />
-
-      <Button
-        onPress={() => {
-          navigation.navigate('Dashboard');
-        }}
-        title='Dashboard'
-        color='#841584'
-        accessibilityLabel='Go to Dashboard'
-      />
     </View>
   );
 }
