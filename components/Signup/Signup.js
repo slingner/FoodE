@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
 
-export default function App() {
+export default function App({ navigation }) {
   function signUp() {
     console.log('signUp!');
   }
@@ -29,7 +29,9 @@ export default function App() {
       />
 
       <Button
-        onPress={signUp}
+        onPress={() => {
+          navigation.navigate('Login');
+        }}
         title='Signup'
         color='#841584'
         accessibilityLabel='Learn more about this purple button'
