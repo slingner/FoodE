@@ -7,7 +7,6 @@ export default function App({ navigation }) {
       <Text>FoodE</Text>
       <TextInput
         style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-        autoFocus={true}
         placeholder='UserName'
       />
       <TextInput

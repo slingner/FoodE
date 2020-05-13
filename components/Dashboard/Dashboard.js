@@ -1,41 +1,38 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { Text, View, SafeAreaView, StyleSheet } from 'react-native';
 
 import Carousel from 'react-native-snap-carousel';
 import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/Ionicons';
+import RecipeCard from '../RecipeCard/RecipeCard';
+import { ScrollView } from 'react-native-gesture-handler';
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      activeIndex: 0,
-      carouselItems: [
-        {
-          title: 'Item 1',
-          text: 'Text 1',
-        },
-        {
-          title: 'Item 2',
-          text: 'Text 2',
-        },
-        {
-          title: 'Item 3',
-          text: 'Text 3',
-        },
-        {
-          title: 'Item 4',
-          text: 'Text 4',
-        },
-        {
-          title: 'Item 5',
-          text: 'Text 5',
-        },
-      ],
-    };
-  }
+export default function Dashboard() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [carouselItems, setCarouselItems] = useState([
+    {
+      title: 'Item 1',
+      text: 'Text 1',
+    },
+    {
+      title: 'Item 2',
+      text: 'Text 2',
+    },
+    {
+      title: 'Item 3',
+      text: 'Text 3',
+    },
+    {
+      title: 'Item 4',
+      text: 'Text 4',
+    },
+    {
+      title: 'Item 5',
+      text: 'Text 5',
+    },
+  ]);
 
-  _renderItem({ item, index }) {
+  const _renderItem = ({ item, index }) => {
     return (
       <View
         style={{
@@ -51,28 +48,41 @@ export default class App extends React.Component {
         <Text>{item.text}</Text>
       </View>
     );
-  }
+  };
 
-  render() {
-    return (
-      <SafeAreaView
-        style={{ flex: 1, backgroundColor: 'lightgrey', paddingTop: 50 }}
-      >
+  return (
+    <SafeAreaView
+      style={{
+        flex: 1,
+        backgroundColor: 'lightgrey',
+        paddingTop: 50,
+        height: 100,
+      }}
+    >
+      <ScrollView style={{}}>
         <Text style={{ margin: 30, fontSize: 25 }}>Welcome, User!</Text>
         <Text style={{ margin: 30, fontSize: 15 }}>Recommended Recipes</Text>
-        <View
-          style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}
-        >
+
+        {/* <-- Carousel of Recommended Recipes Based on Time--> */}
+        <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
           <Carousel
             layout={'default'}
-            ref={(ref) => (this.carousel = ref)}
-            data={this.state.carouselItems}
+            // ref={(ref) => (this.carousel = ref)}
+            data={carouselItems}
             sliderWidth={300}
             itemWidth={300}
-            renderItem={this._renderItem}
-            onSnapToItem={(index) => this.setState({ activeIndex: index })}
+            renderItem={_renderItem}
+            onSnapToItem={(index) => setActiveIndex(index)}
           />
         </View>
+        <View>
+          <RecipeCard />
+          <RecipeCard />
+          <RecipeCard />
+          <RecipeCard />
+        </View>
+
+        {/* <-- Add Button Icon on Bottom Right of Dashboard --> */}
         <View style={{ flex: 1 }}>
           {/* Rest of the app comes ABOVE the action button component !*/}
           <ActionButton buttonColor='rgba(231,76,60,1)'>
@@ -99,9 +109,9 @@ export default class App extends React.Component {
             </ActionButton.Item>
           </ActionButton>
         </View>
-      </SafeAreaView>
-    );
-  }
+      </ScrollView>
+    </SafeAreaView>
+  );
 }
 
 const styles = StyleSheet.create({
