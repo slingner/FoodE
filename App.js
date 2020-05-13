@@ -1,7 +1,7 @@
 import React from 'react';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
-import { StyleSheet, Text, View } from 'react-native';
+// import { StyleSheet, Text, View } from 'react-native';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import Dashboard from './components/Dashboard/Dashboard';
@@ -11,13 +11,13 @@ const Drawer = createDrawerNavigator();
 // const Stack = createStackNavigator();
 
 export default function App() {
-  state = {
-    drawerOpen: false,
-  };
+  // state = {
+  //   drawerOpen: false,
+  // };
 
-  const toggleDrawer = () => {
-    this.setState({ drawerOpen: true });
-  };
+  // const toggleDrawer = () => {
+  //   this.setState({ drawerOpen: true });
+  // };
 
   return (
     <NavigationContainer>
@@ -30,11 +30,11 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: '#fff',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+// });
