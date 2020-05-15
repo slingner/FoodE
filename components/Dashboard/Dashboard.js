@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Text, View, SafeAreaView, StyleSheet } from 'react-native';
+import { Text, View, SafeAreaView } from 'react-native';
 
 import Carousel from 'react-native-snap-carousel';
-import ActionButton from 'react-native-action-button';
-import Icon from 'react-native-vector-icons/Ionicons';
+import PlusButton from '../PlusButton/PlusButton';
 import RecipeCard from '../RecipeCard/RecipeCard';
 import { ScrollView } from 'react-native-gesture-handler';
 
@@ -56,7 +55,6 @@ export default function Dashboard() {
         flex: 1,
         backgroundColor: 'lightgrey',
         paddingTop: 50,
-        height: 100,
       }}
     >
       <ScrollView style={{}}>
@@ -81,43 +79,8 @@ export default function Dashboard() {
           <RecipeCard />
           <RecipeCard />
         </View>
-
-        {/* <-- Add Button Icon on Bottom Right of Dashboard --> */}
-        <View style={{ flex: 1 }}>
-          {/* Rest of the app comes ABOVE the action button component !*/}
-          <ActionButton buttonColor='rgba(231,76,60,1)'>
-            <ActionButton.Item
-              buttonColor='#9b59b6'
-              title='Profile'
-              onPress={() => console.log('notes tapped!')}
-            >
-              <Icon name='md-person' style={styles.actionButtonIcon} />
-            </ActionButton.Item>
-            <ActionButton.Item
-              buttonColor='#3498db'
-              title='Explore Recipes'
-              onPress={() => {}}
-            >
-              <Icon name='md-pizza' style={styles.actionButtonIcon} />
-            </ActionButton.Item>
-            <ActionButton.Item
-              buttonColor='#1abc9c'
-              title='New Recipe'
-              onPress={() => {}}
-            >
-              <Icon name='md-nutrition' style={styles.actionButtonIcon} />
-            </ActionButton.Item>
-          </ActionButton>
-        </View>
       </ScrollView>
+      <PlusButton />
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  actionButtonIcon: {
-    fontSize: 20,
-    height: 22,
-    color: 'white',
-  },
-});
