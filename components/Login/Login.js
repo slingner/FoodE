@@ -14,9 +14,9 @@ export default function App({ navigation }) {
         placeholder='Password'
       />
       <Button
-        // onPress={() => {
-        //   navigation.navigate('Signup');
-        // }}
+        onPress={() => {
+          navigation.navigate('Signup');
+        }}
         title='Login'
         color='#841584'
         accessibilityLabel='Learn more about this purple button'
