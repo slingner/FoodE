@@ -7,7 +7,6 @@ export default function App({ navigation }) {
       <Text>FoodE</Text>
       <TextInput
         style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-        autoFocus={true}
         placeholder='UserName'
       />
       <TextInput
@@ -15,9 +14,9 @@ export default function App({ navigation }) {
         placeholder='Password'
       />
       <Button
-        // onPress={() => {
-        //   navigation.navigate('Signup');
-        // }}
+        onPress={() => {
+          navigation.navigate('Signup');
+        }}
         title='Login'
         color='#841584'
         accessibilityLabel='Learn more about this purple button'
