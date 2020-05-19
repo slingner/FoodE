@@ -79,7 +79,7 @@ export default class Dashboard extends React.Component {
             />
           </View>
           <View>
-            <RecipeCard />
+            <RecipeCard navigate={navigate} />
             <RecipeCard />
             <RecipeCard />
             <RecipeCard />
