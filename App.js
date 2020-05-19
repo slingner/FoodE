@@ -7,6 +7,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Profile from './components/Profile/Profile';
 import Explore from './components/Explore/Explore';
 import Favorites from './components/Favorites/Favorites';
+import RecipeBuilder from './components/RecipeBuilder/RecipeBuilder';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 const Drawer = createDrawerNavigator();
@@ -30,6 +31,7 @@ export default function App() {
         <Drawer.Screen name='Profile' component={Profile} />
         <Drawer.Screen name='Favorites' component={Favorites} />
         <Drawer.Screen name='Explore' component={Explore} />
+        <Drawer.Screen name='Recipe Builder' component={RecipeBuilder} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
