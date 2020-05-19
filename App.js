@@ -8,19 +8,12 @@ import Profile from './components/Profile/Profile';
 import Explore from './components/Explore/Explore';
 import Favorites from './components/Favorites/Favorites';
 import RecipeBuilder from './components/RecipeBuilder/RecipeBuilder';
+import RecipeView from "./components/Recipe/RecipeView";
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 const Drawer = createDrawerNavigator();
-// const Stack = createStackNavigator();
 
 export default function App() {
-  // state = {
-  //   drawerOpen: false,
-  // };
-
-  // const toggleDrawer = () => {
-  //   this.setState({ drawerOpen: true });
-  // };
 
   return (
     <NavigationContainer>
@@ -32,6 +25,7 @@ export default function App() {
         <Drawer.Screen name='Favorites' component={Favorites} />
         <Drawer.Screen name='Explore' component={Explore} />
         <Drawer.Screen name='Recipe Builder' component={RecipeBuilder} />
+        <Drawer.Screen name="Recipe View" component={RecipeView} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
