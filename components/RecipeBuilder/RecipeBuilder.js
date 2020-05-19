@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import Constants from 'expo-constants';
 import Collapsible from 'react-native-collapsible';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class RecipeBuilder extends Component {
   state = {
@@ -95,11 +96,23 @@ export default class RecipeBuilder extends Component {
             align='center'
           >
             <View style={styles.content}>
-              <Text style={styles.label}>Prep</Text>
-              <TextInput
-                style={styles.input}
-                placeholder='Input Prep Instructions'
-              />
+              <TextInput style={styles.input} placeholder='Input Ingredients' />
+
+              {/* Hardcoded ingredients for now */}
+              <View style={styles.ingredientContainer}>
+                <Text style={styles.content}>1. Apples</Text>
+                <Icon name='md-trash' style={styles.deleteButton} />
+                <Text style={styles.content}>2. Oranges</Text>
+                <Icon name='md-trash' style={styles.deleteButton} />
+                <Text style={styles.content}>3. Bananas</Text>
+                <Icon name='md-trash' style={styles.deleteButton} />
+                <Text style={styles.content}>4. Apples</Text>
+                <Icon name='md-trash' style={styles.deleteButton} />
+                <Text style={styles.content}>5. Oranges</Text>
+                <Icon name='md-trash' style={styles.deleteButton} />
+                <Text style={styles.content}>6. Bananas</Text>
+                <Icon name='md-trash' style={styles.deleteButton} />
+              </View>
             </View>
           </Collapsible>
 
@@ -120,6 +133,14 @@ export default class RecipeBuilder extends Component {
                 style={styles.input}
                 placeholder='Input Prep Instructions'
               />
+              <View style={styles.ingredientContainer}>
+                <Text style={styles.content}>1. Apples</Text>
+                <Icon name='md-trash' style={styles.deleteButton} />
+                <Text style={styles.content}>2. Oranges</Text>
+                <Icon name='md-trash' style={styles.deleteButton} />
+                <Text style={styles.content}>3. Bananas</Text>
+                <Icon name='md-trash' style={styles.deleteButton} />
+              </View>
             </View>
             <View style={styles.content}>
               <Text style={styles.label}>Cook</Text>
@@ -127,6 +148,14 @@ export default class RecipeBuilder extends Component {
                 style={styles.input}
                 placeholder='Input Cook Instructions'
               />
+              <View style={styles.ingredientContainer}>
+                <Text style={styles.content}>1. Apples</Text>
+                <Icon name='md-trash' style={styles.deleteButton} />
+                <Text style={styles.content}>2. Oranges</Text>
+                <Icon name='md-trash' style={styles.deleteButton} />
+                <Text style={styles.content}>3. Bananas</Text>
+                <Icon name='md-trash' style={styles.deleteButton} />
+              </View>
             </View>
             <View style={styles.content}>
               <Text style={styles.label}>Plating</Text>
@@ -134,6 +163,14 @@ export default class RecipeBuilder extends Component {
                 style={styles.input}
                 placeholder='Input Plating Instructions'
               />
+              <View style={styles.ingredientContainer}>
+                <Text style={styles.content}>1. Apples</Text>
+                <Icon name='md-trash' style={styles.deleteButton} />
+                <Text style={styles.content}>2. Oranges</Text>
+                <Icon name='md-trash' style={styles.deleteButton} />
+                <Text style={styles.content}>3. Bananas</Text>
+                <Icon name='md-trash' style={styles.deleteButton} />
+              </View>
             </View>
           </Collapsible>
 
@@ -148,6 +185,14 @@ export default class RecipeBuilder extends Component {
             <View style={styles.content}>
               <Text style={styles.label}>Prep</Text>
               <TextInput style={styles.input} placeholder='Input Notes' />
+              <View style={styles.ingredientContainer}>
+                <Text style={styles.content}>1. Apples</Text>
+                <Icon name='md-trash' style={styles.deleteButton} />
+                <Text style={styles.content}>2. Oranges</Text>
+                <Icon name='md-trash' style={styles.deleteButton} />
+                <Text style={styles.content}>3. Bananas</Text>
+                <Icon name='md-trash' style={styles.deleteButton} />
+              </View>
             </View>
           </Collapsible>
         </ScrollView>
@@ -184,7 +229,20 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   content: {
-    padding: 20,
+    padding: 10,
+    fontSize: 16,
     backgroundColor: '#fff',
+  },
+  ingredientContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+  },
+  deleteButton: {
+    fontSize: 20,
+    height: 22,
+    color: 'black',
+    alignSelf: 'center',
   },
 });
