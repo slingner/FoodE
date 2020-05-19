@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
 
-export default function App({ navigation }) {
+export default function Signup({ navigation }) {
   function signUp() {
     console.log('signUp!');
   }

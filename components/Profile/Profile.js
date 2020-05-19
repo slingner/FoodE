@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   StyleSheet,
   Text,
@@ -6,21 +6,21 @@ import {
   View,
   Button,
   SafeAreaView,
-} from "react-native";
-import { FlatList } from "react-native-gesture-handler";
+} from 'react-native';
+import { FlatList } from 'react-native-gesture-handler';
 
 const DATA = [
   {
-    id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-    title: "First Recipe",
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    title: 'First Recipe',
   },
   {
-    id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
-    title: "Second Recipe",
+    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+    title: 'Second Recipe',
   },
   {
-    id: "58694a0f-3da1-471f-bd96-145571e29d72",
-    title: "Third Recipe",
+    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    title: 'Third Recipe',
   },
 ];
 
@@ -67,52 +67,52 @@ export default function Profile() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "column",
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "flex-start",
+    flexDirection: 'column',
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
     padding: 30,
   },
   followBar: {
     // marginTop: 20,
-    display: "flex",
-    width: "100%",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "flex-end",
+    display: 'flex',
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
   },
   followCircle: {
     width: 30,
     height: 30,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     marginHorizontal: 10,
     borderRadius: 50,
-    backgroundColor: "#7090FF",
+    backgroundColor: '#7090FF',
   },
   profilePicture: {
     width: 200,
     height: 200,
-    backgroundColor: "#63D7FF",
+    backgroundColor: '#63D7FF',
     borderRadius: 200,
   },
   profileInfo: {
-    alignItems: "center",
-    width: "100%",
+    alignItems: 'center',
+    width: '100%',
   },
   profileAbout: {
-    width: "90%",
+    width: '90%',
     marginTop: 10,
   },
   profileName: {
     fontSize: 32,
-    width: "100%",
+    width: '100%',
     // textDecorationLine: "underline",
   },
   profileNameView: {
     borderBottomWidth: 1,
-    width: "90%",
+    width: '90%',
   },
   profileRecipesTitleView: {
     borderBottomWidth: 1,
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     fontSize: 32,
   },
   item: {
-    backgroundColor: "#f9c2ff",
+    backgroundColor: '#f9c2ff',
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
