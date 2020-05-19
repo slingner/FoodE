@@ -195,6 +195,13 @@ export default class RecipeBuilder extends Component {
               </View>
             </View>
           </Collapsible>
+          <View></View>
+          <Icon
+            name='md-checkmark'
+            style={styles.saveButton}
+            title='Saved'
+            onPress={() => console.log('notes tapped!')}
+          />
         </ScrollView>
       </View>
     );
@@ -241,7 +248,12 @@ const styles = StyleSheet.create({
   },
   deleteButton: {
     fontSize: 20,
-    height: 22,
+    color: 'red',
+    alignSelf: 'center',
+  },
+  saveButton: {
+    fontSize: 35,
+
     color: 'black',
     alignSelf: 'center',
   },
