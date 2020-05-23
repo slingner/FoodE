@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState } from "react";
 import {
   ScrollView,
   StyleSheet,
@@ -6,10 +6,12 @@ import {
   TextInput,
   View,
   TouchableOpacity,
-} from 'react-native';
-import Constants from 'expo-constants';
-import Collapsible from 'react-native-collapsible';
-import Icon from 'react-native-vector-icons/Ionicons';
+  Button,
+} from "react-native";
+import Constants from "expo-constants";
+import Collapsible from "react-native-collapsible";
+import Icon from "react-native-vector-icons/Ionicons";
+import { addRecipe } from "../api/foodeApi";
 
 export default class RecipeBuilder extends Component {
   state = {
@@ -17,7 +19,7 @@ export default class RecipeBuilder extends Component {
     ingredientsCollapsed: true,
     instructionsCollapsed: true,
     notesCollapsed: true,
-    title: '',
+    title: "",
     images: [],
     ingredients: [],
     prep: [],
@@ -43,11 +45,11 @@ export default class RecipeBuilder extends Component {
   };
 
   handleTitle = (text) => {
-    this.setState({ ingredients: text });
+    this.setState({ title: text });
   };
 
   handleImages = (image) => {
-    this.setState({ ingredients: image });
+    this.setState({ img: image });
   };
 
   handleIngredients = (text) => {
@@ -62,6 +64,11 @@ export default class RecipeBuilder extends Component {
     this.setState({ notes: text });
   };
 
+  onRecipeAdd = (recipe) => {
+    console.log("recipe added");
+    console.log(recipe);
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -71,8 +78,13 @@ export default class RecipeBuilder extends Component {
             <Text style={styles.headerText}>Recipe Title</Text>
             <TextInput
               style={styles.input}
-              placeholder='Add a title for your recipe'
-              placeholderTextColor='darkgrey'
+              placeholder="Add a title for your recipe"
+              placeholderTextColor="darkgrey"
+              onChangeText={(text) =>
+                this.setState((prevState) => ({
+                  title: (prevState.title = text),
+                }))
+              }
             />
           </View>
 
@@ -80,7 +92,7 @@ export default class RecipeBuilder extends Component {
             <Text style={styles.headerText}>Recipe Images</Text>
             <TextInput
               style={styles.input}
-              placeholder='Add images for your recipe'
+              placeholder="Add images for your recipe"
             />
           </View>
 
@@ -93,25 +105,25 @@ export default class RecipeBuilder extends Component {
 
           <Collapsible
             collapsed={this.state.ingredientsCollapsed}
-            align='center'
+            align="center"
           >
             <View style={styles.content}>
-              <TextInput style={styles.input} placeholder='Input Ingredients' />
+              <TextInput style={styles.input} placeholder="Input Ingredients" />
 
               {/* Hardcoded ingredients for now */}
               <View style={styles.ingredientContainer}>
                 <Text style={styles.content}>1. Apples</Text>
-                <Icon name='md-trash' style={styles.deleteButton} />
+                <Icon name="md-trash" style={styles.deleteButton} />
                 <Text style={styles.content}>2. Oranges</Text>
-                <Icon name='md-trash' style={styles.deleteButton} />
+                <Icon name="md-trash" style={styles.deleteButton} />
                 <Text style={styles.content}>3. Bananas</Text>
-                <Icon name='md-trash' style={styles.deleteButton} />
+                <Icon name="md-trash" style={styles.deleteButton} />
                 <Text style={styles.content}>4. Apples</Text>
-                <Icon name='md-trash' style={styles.deleteButton} />
+                <Icon name="md-trash" style={styles.deleteButton} />
                 <Text style={styles.content}>5. Oranges</Text>
-                <Icon name='md-trash' style={styles.deleteButton} />
+                <Icon name="md-trash" style={styles.deleteButton} />
                 <Text style={styles.content}>6. Bananas</Text>
-                <Icon name='md-trash' style={styles.deleteButton} />
+                <Icon name="md-trash" style={styles.deleteButton} />
               </View>
             </View>
           </Collapsible>
@@ -125,51 +137,51 @@ export default class RecipeBuilder extends Component {
 
           <Collapsible
             collapsed={this.state.instructionsCollapsed}
-            align='center'
+            align="center"
           >
             <View style={styles.content}>
               <Text style={styles.label}>Prep</Text>
               <TextInput
                 style={styles.input}
-                placeholder='Input Prep Instructions'
+                placeholder="Input Prep Instructions"
               />
               <View style={styles.ingredientContainer}>
                 <Text style={styles.content}>1. Apples</Text>
-                <Icon name='md-trash' style={styles.deleteButton} />
+                <Icon name="md-trash" style={styles.deleteButton} />
                 <Text style={styles.content}>2. Oranges</Text>
-                <Icon name='md-trash' style={styles.deleteButton} />
+                <Icon name="md-trash" style={styles.deleteButton} />
                 <Text style={styles.content}>3. Bananas</Text>
-                <Icon name='md-trash' style={styles.deleteButton} />
+                <Icon name="md-trash" style={styles.deleteButton} />
               </View>
             </View>
             <View style={styles.content}>
               <Text style={styles.label}>Cook</Text>
               <TextInput
                 style={styles.input}
-                placeholder='Input Cook Instructions'
+                placeholder="Input Cook Instructions"
               />
               <View style={styles.ingredientContainer}>
                 <Text style={styles.content}>1. Apples</Text>
-                <Icon name='md-trash' style={styles.deleteButton} />
+                <Icon name="md-trash" style={styles.deleteButton} />
                 <Text style={styles.content}>2. Oranges</Text>
-                <Icon name='md-trash' style={styles.deleteButton} />
+                <Icon name="md-trash" style={styles.deleteButton} />
                 <Text style={styles.content}>3. Bananas</Text>
-                <Icon name='md-trash' style={styles.deleteButton} />
+                <Icon name="md-trash" style={styles.deleteButton} />
               </View>
             </View>
             <View style={styles.content}>
               <Text style={styles.label}>Plating</Text>
               <TextInput
                 style={styles.input}
-                placeholder='Input Plating Instructions'
+                placeholder="Input Plating Instructions"
               />
               <View style={styles.ingredientContainer}>
                 <Text style={styles.content}>1. Apples</Text>
-                <Icon name='md-trash' style={styles.deleteButton} />
+                <Icon name="md-trash" style={styles.deleteButton} />
                 <Text style={styles.content}>2. Oranges</Text>
-                <Icon name='md-trash' style={styles.deleteButton} />
+                <Icon name="md-trash" style={styles.deleteButton} />
                 <Text style={styles.content}>3. Bananas</Text>
-                <Icon name='md-trash' style={styles.deleteButton} />
+                <Icon name="md-trash" style={styles.deleteButton} />
               </View>
             </View>
           </Collapsible>
@@ -181,26 +193,31 @@ export default class RecipeBuilder extends Component {
             </View>
           </TouchableOpacity>
 
-          <Collapsible collapsed={this.state.notesCollapsed} align='center'>
+          <Collapsible collapsed={this.state.notesCollapsed} align="center">
             <View style={styles.content}>
               <Text style={styles.label}>Prep</Text>
-              <TextInput style={styles.input} placeholder='Input Notes' />
+              <TextInput style={styles.input} placeholder="Input Notes" />
               <View style={styles.ingredientContainer}>
                 <Text style={styles.content}>1. Apples</Text>
-                <Icon name='md-trash' style={styles.deleteButton} />
+                <Icon name="md-trash" style={styles.deleteButton} />
                 <Text style={styles.content}>2. Oranges</Text>
-                <Icon name='md-trash' style={styles.deleteButton} />
+                <Icon name="md-trash" style={styles.deleteButton} />
                 <Text style={styles.content}>3. Bananas</Text>
-                <Icon name='md-trash' style={styles.deleteButton} />
+                <Icon name="md-trash" style={styles.deleteButton} />
               </View>
             </View>
           </Collapsible>
           <View></View>
-          <Icon
-            name='md-checkmark'
-            style={styles.saveButton}
-            title='Saved'
-            onPress={() => console.log('notes tapped!')}
+          <Button
+            title="submit"
+            onPress={() =>
+              addRecipe(
+                {
+                  name: this.state.title,
+                },
+                this.onRecipeAdd
+              )
+            }
           />
         </ScrollView>
       </View>
@@ -211,50 +228,66 @@ export default class RecipeBuilder extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5FCFF',
+    backgroundColor: "#F5FCFF",
     paddingTop: Constants.statusBarHeight,
   },
   title: {
-    textAlign: 'center',
+    textAlign: "center",
     fontSize: 22,
-    fontWeight: '300',
+    fontWeight: "300",
     marginBottom: 20,
   },
   header: {
-    backgroundColor: '#F5FCFF',
+    backgroundColor: "#F5FCFF",
     padding: 10,
   },
   headerText: {
-    textAlign: 'center',
+    textAlign: "center",
     fontSize: 16,
-    fontWeight: '500',
+    fontWeight: "500",
   },
   input: {
-    textAlign: 'center',
+    textAlign: "center",
     height: 30,
     borderBottomWidth: 1,
-    color: 'black',
+    color: "black",
   },
   content: {
     padding: 10,
     fontSize: 16,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
   ingredientContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    flexWrap: 'wrap',
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    flexWrap: "wrap",
   },
   deleteButton: {
     fontSize: 20,
-    color: 'red',
-    alignSelf: 'center',
+    color: "red",
+    alignSelf: "center",
   },
   saveButton: {
     fontSize: 35,
 
-    color: 'black',
-    alignSelf: 'center',
+    color: "black",
+    alignSelf: "center",
   },
 });
+
+{
+  /* <Icon
+name="md-checkmark"
+style={styles.saveButton}
+title="Saved"
+onPress={() =>
+  addRecipe(
+    {
+      name: this.state.title,
+    },
+    this.onRecipeAdd
+  )
+}
+/> */
+}
